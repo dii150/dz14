@@ -1,0 +1,13 @@
+@use "variables";
+
+
+%defaultBorder {
+  border: 1px variables.$borderDefaultColor solid;
+  border-radius: 6px;
+}
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

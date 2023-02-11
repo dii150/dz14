@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+<main>
+    <div class="form-holder">
+        <div class="form-holder__item form-holder__item_left">
+            <h2>Create an Account</h2>
+
+            <form class="form">
+
+
+                <!--Name-->
+                <div class="form-group form-group2col">
+                    <div class="form-group-input">
+                        <label for="name">First Name</label>
+                        <input id="name" type="text">
+                    </div>
+                    <div class="form-group-input">
+                        <label for="firstName">Last Name</label>
+                        <input id="firstName" type="text">
+                    </div>
+                </div>
+
+
+                <!--Email-->
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email">
+                        <span class="form-tooltip">We'll never share your email with anyone else.</span>
+                    </div>
+                </div>
+
+
+                <!--Sex-->
+                <div class="form-group form-group-radio-btns">
+                    <div class="form-group-radio">
+                        <input id="male" name="gender"
+                               type="radio">
+                        <label for="male">Male</label>
+
+                    </div>
+                    <div class="form-group-radio">
+                        <input id="female" name="gender"
+                               type="radio">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+
+                <!--Approve-->
+                <div class="form-group form-group-checkbox-btn">
+                    <div class="form-group-checkbox">
+                        <input id="approve" type="checkbox">
+                        <label for="approve">Ok</label>
+
+                    </div>
+                </div>
+
+
+                <!--Location-->
+                <div class="form-group form-group2col">
+                    <div class="form-group-select">
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option></option>
+                            <option value="ukraine">Ukraine</option>
+                            <option value="france">France</option>
+                            <option value="poland">Poland</option>
+                        </select>
+                    </div>
+                    <div class="form-group-input">
+                        <label for="city">City</label>
+                        <input id="city" type="text">
+                    </div>
+                </div>
+
+
+                <!--Button-->
+                <button type="submit">Sign Up</button>
+
+            </form>
+            <p class="upperText">By clicking the 'Sign Up' button, you confirm that you accept our <a href="/">Terms of
+                use</a> and <a
+                    href="/">Privacy Policy</a>.</p>
+
+            <p class="bottomText">Have an account? <a href="/">Log in</a></p>
+
+        </div>
+        <div class="form-holder__item form-holder__item_right">
+            <h2>Profile</h2>
+
+            <form class="form">
+
+
+                <!--Photo-->
+                <div class="form-group ">
+                    <div class="form-group-input form-group-upload">
+                        <img alt="profile picture" id="output" onchange="loadFile(event)" src="images/who.jpeg"/>
+                        <div class="form-group-upload__item">
+                            <input accept="image/*" id="photo" onchange="loadFile(event)" type="file">
+                            <label class="border-photo__label" for="photo">Up to 1 MB (300x300 px)</label>
+                            <script>
+                                var loadFile = function (event) {
+                                    var output = document.getElementById('output');
+                                    output.src = URL.createObjectURL(event.target.files[0]);
+                                    output.onload = function () {
+                                        URL.revokeObjectURL(output.src) // free memory
+                                    }
+                                };
+                            </script>
+                        </div>
+                        <div class="thrash">
+                            <img class="thrash__img" src="images/trash.png" alt="icon">
+                        </div>
+                        <div class="border-photo"></div>
+                        <img class="border-photo__img" src="images/iconPhoto.png" alt="icon">
+                    </div>
+
+
+                <!--Name-->
+                    <div class="form-group form-group2col">
+                        <div class="form-group-input">
+                            <label for="nameAcc">Name</label>
+                            <input id="nameAcc" type="text">
+                        </div>
+                        <div class="form-group-input">
+                            <label for="emailAcc">Email</label>
+                            <input id="emailAcc" type="email">
+                        </div>
+                    </div>
+
+
+                    <!--Location-->
+                    <div class="form-group form-group2col">
+                        <div class="form-group-select">
+                            <label for="countryAcc">Country</label>
+                            <select id="countryAcc" name="country">
+                                <option></option>
+                                <option value="ukraine">Ukraine</option>
+                                <option value="france">France</option>
+                                <option value="poland">Poland</option>
+                            </select>
+                        </div>
+                        <div class="form-group-input">
+                            <label for="cityAcc">City</label>
+                            <input id="cityAcc" type="text">
+                        </div>
+                    </div>
+
+
+                    <!--Number-->
+                    <div class="form-group form-group2col">
+                        <div class="form-group-input">
+                            <label for="zip">Zip code</label>
+                            <input id="zip" type="number">
+                        </div>
+                        <div class="form-group-input">
+                            <label for="number">Number</label>
+                            <input id="number" type="number">
+                        </div>
+                    </div>
+
+                    <!--Button-->
+                    <button class="button" type="submit">Update</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</main>
+
+</body>
+</html>
